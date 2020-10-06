@@ -1,0 +1,63 @@
+<!--
+WS EPD Driver
+Copyright (C) 2020 Marc Poppleton
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<resources>
+    <string name="app_name">Android e-Ink Demo</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut ex ut tellus semper convallis. Aliquam nulla ex, cursus in purus vel, elementum pharetra sapien. Ut elementum dictum nunc, nec commodo est bibendum eget. Etiam aliquet nulla eu neque luctus, eu posuere est fringilla. Ut pellentesque non risus ac varius. Vivamus dictum justo auctor est lobortis condimentum. Curabitur id mi quis nisl ornare laoreet. Praesent posuere condimentum odio ac laoreet. Integer erat arcu, pretium eu lectus ac, porta sagittis orci. Etiam ac lacinia dolor. Nam eu justo at sapien feugiat malesuada sed in diam. Nunc porta ligula nec mauris maximus lacinia. Vestibulum sit amet maximus sapien.
+
+In ornare sit amet dolor quis euismod. Suspendisse congue urna id magna porttitor pharetra. Quisque ultrices sodales enim, condimentum pulvinar leo placerat non. Sed sollicitudin a lectus mattis blandit. Ut dapibus cursus odio. Donec sit amet ipsum non justo molestie vehicula. Curabitur ornare, orci sit amet tristique ultricies, turpis diam tempor velit, sit amet congue massa odio non lorem. Suspendisse ut erat ultrices, aliquet lorem nec, commodo velit. Phasellus risus massa, tincidunt vitae vestibulum id, facilisis nec orci. Quisque mauris leo, ultrices sed convallis a, rutrum a magna. Nullam tempor viverra lacinia. Mauris ut leo efficitur, facilisis augue quis, rhoncus est. Cras pellentesque id felis at consectetur. Donec id pulvinar arcu. Sed finibus et turpis sed fringilla.
+
+Sed porttitor enim at pretium accumsan. Suspendisse potenti. Sed vestibulum arcu in enim luctus, vel euismod velit rhoncus. Morbi vehicula accumsan mauris. Curabitur ut erat nisl. Nulla facilisi. Morbi ac tellus porta, convallis dolor eu, malesuada quam. Nam nec blandit felis. Nullam sed commodo est. Donec euismod aliquam est, vitae aliquet quam varius id.
+
+Fusce nec risus massa. Sed eu accumsan odio. Maecenas mattis eu nunc ut porta. Phasellus et placerat justo, eget ullamcorper ex. Nullam rhoncus turpis mauris. Etiam egestas tellus quis cursus scelerisque. Donec pellentesque ac odio dignissim vestibulum. Fusce accumsan, nisl in finibus aliquet, mauris nisl consectetur diam, vitae tempor augue nibh quis lorem. Vivamus sed erat dignissim, facilisis justo eget, consequat purus.
+
+Nullam mattis luctus egestas. Integer faucibus maximus neque, hendrerit hendrerit est commodo eget. Duis varius est id dui pretium, vel tempor magna posuere. Donec eu augue rhoncus, semper metus efficitur, rutrum metus. Praesent non lobortis ante. Curabitur eu congue elit, quis blandit risus. Proin et ex tempus, volutpat felis blandit, suscipit justo. Pellentesque vel lorem sit amet metus luctus facilisis. Suspendisse nibh mi, malesuada ac lacinia sit amet, lacinia et ligula. Nunc dapibus nisi nec urna sodales tempor. Suspendisse eu turpis eu lectus pharetra vulputate. Morbi sed lacus condimentum, consectetur justo nec, eleifend ligula. Nulla nunc quam, volutpat in egestas ut, luctus non erat. Mauris quis varius mi. Sed eget venenatis elit. Donec mattis risus et gravida placerat.
+
+Nam velit arcu, ultrices bibendum dapibus non, suscipit eget orci. Sed pulvinar feugiat eros, at fermentum justo eleifend ac. Duis nulla justo, ultrices non eros sed, ornare ultricies ipsum. Nam nec dolor id tortor eleifend hendrerit a quis mauris. Nulla vulputate, erat pharetra tincidunt mollis, dui erat luctus sapien, nec finibus ante ante sed purus. Sed suscipit in dolor non vestibulum. Etiam ullamcorper mattis quam, vel sodales neque efficitur quis. Sed suscipit neque elit, et feugiat nisi pulvinar pulvinar. Sed sagittis ligula metus, id pharetra mauris tempor sed. Proin nec viverra lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas porta arcu ut convallis fringilla. Duis tincidunt porttitor imperdiet. Pellentesque venenatis dui vitae ex vulputate ultrices. Duis tincidunt maximus dui eu eleifend. Maecenas vel sagittis urna, sit amet tincidunt eros.
+
+Quisque dapibus luctus metus, et commodo est luctus sit amet. Sed efficitur dolor sed lacus pulvinar posuere. Duis lacinia quam diam, eleifend volutpat est convallis id. Duis pretium porta dolor ac porta. Ut facilisis neque dignissim dapibus luctus. Nulla tortor nisi, volutpat eu tellus nec, eleifend faucibus tellus. Etiam vestibulum magna ut turpis ultrices, sed euismod magna placerat. In porttitor eros a mollis condimentum. Duis quis orci semper, gravida odio faucibus, viverra eros. Proin augue nisi, pretium non augue at, bibendum ultricies nisi. Aliquam vestibulum rutrum odio. Donec sed nulla maximus, mattis justo vitae, porta odio. Aenean vitae ullamcorper tortor, sed rutrum urna.
+
+Praesent quis odio id nisl pharetra viverra. Phasellus dictum euismod finibus. Proin id nibh in tortor fringilla consequat vitae non nisl. Sed tortor urna, facilisis vitae magna sed, fermentum dignissim orci. Pellentesque rhoncus, justo nec bibendum elementum, neque metus cursus ante, nec placerat libero mauris a est. Pellentesque accumsan diam felis, non ullamcorper quam consequat a. Integer scelerisque risus sit amet mauris auctor, et sodales justo hendrerit. Ut dapibus justo quis risus dictum, vitae aliquet nisl fermentum. Vestibulum ultricies lacinia velit a pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean mattis urna non laoreet sodales. Sed gravida, nisl id bibendum pulvinar, lectus diam sollicitudin erat, vel ultrices justo ipsum eget justo.
+
+Nulla rhoncus ligula vel elit ultricies finibus. Praesent sit amet porta nisi. Etiam consectetur egestas sem, vitae consectetur eros ultricies ut. Praesent molestie ipsum velit, non porttitor erat volutpat ac. Sed mattis dui velit, vitae lacinia elit tincidunt eu. Pellentesque ultrices orci id tristique scelerisque. Vestibulum rhoncus odio a ipsum porta ultricies ac quis urna.
+
+Maecenas id venenatis arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce nec massa vehicula nulla volutpat convallis. Cras purus leo, rutrum eu felis id, convallis cursus mauris. Suspendisse volutpat sapien a diam rutrum, quis bibendum orci faucibus. Donec consequat congue sem, euismod rhoncus mauris lobortis vel. Proin neque nunc, pretium nec finibus sed, rutrum non mauris. Aenean facilisis, sapien eu iaculis vulputate, tellus ante imperdiet nulla, at vehicula ipsum nunc a sem. Ut sollicitudin enim vel quam venenatis, vitae tincidunt nulla posuere. Donec consectetur sollicitudin justo nec luctus. Etiam mollis urna id nunc gravida, id blandit ex pellentesque.</string>
+    <string name="refresh_title">Refresh number %d</string>
+    <string name="living_room">Living room</string>
+    <string name="_21_c">21°C</string>
+    <string name="office">Office</string>
+    <string name="bottom_left">Bottom left</string>
+    <string name="_54">54%</string>
+    <string name="_19_5_c">19,5°C</string>
+    <string name="_52">52%</string>
+    <string name="liam_s_room">Bedroom 1</string>
+    <string name="aileen_s_room">Bedroom 2</string>
+    <string name="parents_room">Bedroom 3</string>
+    <string name="guest_room">Guest room</string>
+    <string name="garage">Garage</string>
+    <string name="outside">Outside</string>
+    <string name="_71">71%</string>
+    <string name="_11_c">11°C</string>
+    <string name="n_c">n/c</string>
+    <string name="_13_c">13°C</string>
+    <string name="_17_5_c">17,5°C</string>
+    <string name="bottom_right">Bottom right</string>
+    <string name="_51">51%</string>
+    <string name="_58">58%</string>
+    <string name="_19_c">19°C</string>
+    <string name="_18_8_c">18,8°C</string>
+    <string name="_57">57%</string>
+    <string name="_59">59%</string>
+</resources>

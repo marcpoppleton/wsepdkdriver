@@ -1,0 +1,3 @@
+rootProject.name='WsEpd'
+include ':app'
+include ':wsepdkdriver'
