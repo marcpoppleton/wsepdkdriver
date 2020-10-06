@@ -23,6 +23,7 @@ import com.marcpoppleton.wsepdkdriver.Epd7in5v2
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.w3c.dom.Text
 import java.io.IOException
 
 
@@ -34,17 +35,15 @@ class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard)
         display = Epd7in5v2(layoutInflater, R.layout.activity_dashboard)
     }
 
     override fun onResume() {
         super.onResume()
 
+        val title = display.findViewById<TextView>(R.id.title) as TextView
         GlobalScope.launch {
             for(i in 0..10){
-                Log.d(TAG,"loop number $i")
-                val title = display.findViewById<TextView>(R.id.title) as TextView
                 title.text = getString(R.string.refresh_title,i)
                 display.refresh()
                 delay(45000)
@@ -53,17 +52,8 @@ class MainActivity : Activity() {
     }
 
     override fun onDestroy() {
+        display.close()
         super.onDestroy()
-        Log.d(TAG, "onDestroy called, closing display")
-        try {
-            display.close()
-        } catch (e: IOException) {
-            Log.e(
-                TAG,
-                "Error closing display",
-                e
-            )
-        }
     }
 
 }
