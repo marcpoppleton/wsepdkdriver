@@ -18,6 +18,7 @@ package com.marcpoppleton.wsepdkdriver
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.Matrix
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +28,7 @@ import kotlin.experimental.or
 
 // For detailed specification refer to document https://www.waveshare.com/w/upload/6/60/7.5inch_e-Paper_V2_Specification.pdf
 
-class Epd7in5v2(private val layoutInflater: LayoutInflater,private val layoutReference: Int) : WsEpd() {
+class Epd7in5v2(private val layoutInflater: LayoutInflater,private val layoutReference: Int,var orientation: Orientation = Orientation.LANDSCAPE_BOTTOM) : WsEpd() {
 
     private val WIDTH = 800
     private val HEIGHT = 480
@@ -219,10 +220,18 @@ class Epd7in5v2(private val layoutInflater: LayoutInflater,private val layoutRef
 
     private fun loadBitmapFromView(): Bitmap? {
 
+        var width=WIDTH
+        var height=HEIGHT
+
+        if((orientation==Orientation.PORTRAIT_LEFT) || (orientation==Orientation.PORTRAIT_RIGHT) ){
+            width = HEIGHT
+            height = WIDTH
+        }
+
         val viewGroup = layout.rootView as ViewGroup
         viewGroup.measure(
-            View.MeasureSpec.makeMeasureSpec(WIDTH,View.MeasureSpec.EXACTLY),
-            View.MeasureSpec.makeMeasureSpec(HEIGHT,View.MeasureSpec.EXACTLY)
+            View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
+            View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY)
         )
         viewGroup.layout(0, 0, viewGroup.measuredWidth, viewGroup.measuredHeight)
 
@@ -236,6 +245,17 @@ class Epd7in5v2(private val layoutInflater: LayoutInflater,private val layoutRef
         viewGroup.layout(viewGroup.left, viewGroup.top, viewGroup.right, viewGroup.bottom)
         viewGroup.draw(c)
 
-        return b
+        return when(orientation){
+            Orientation.PORTRAIT_RIGHT -> b.rotate(90f)
+            Orientation.PORTRAIT_LEFT -> b.rotate(-90f)
+            Orientation.LANDSCAPE_TOP -> b.rotate(180f)
+            Orientation.LANDSCAPE_BOTTOM -> b
+        }
+    }
+
+    fun Bitmap.rotate(angle: Float): Bitmap {
+        val matrix = Matrix()
+        matrix.postRotate(angle)
+        return Bitmap.createBitmap(this, 0, 0, this.width, this.height, matrix, true)
     }
 }

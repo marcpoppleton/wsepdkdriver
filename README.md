@@ -27,7 +27,7 @@ implementation 'com.marcpoppleton:wsepdkdriver:1.0.1'
 ```
 
 In your application's code you can use a e-Paper device like a display.
-In the following example you can see how a 7,5" Waveshare device is used to display a dashboard updated every 45 seconds.
+In the following example you can see how a 7,5" Waveshare device is used to display a layout in which we update the content of a TextView.
 
 ```kotlin
 class MainActivity : Activity() {
@@ -36,7 +36,7 @@ class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        display = Epd7in5v2(layoutInflater, R.layout.activity_dashboard)
+        display = Epd7in5v2(layoutInflater, R.layout.epd_hello)
     }
 
     override fun onResume() {
@@ -44,10 +44,8 @@ class MainActivity : Activity() {
 
         val title = display.findViewById<TextView>(R.id.title) as TextView
         GlobalScope.launch {
-            for(i in 0..10){
-                title.text = getString(R.string.refresh_title,i)
+                title.text = getString(R.string.hello_world)
                 display.refresh()
-                delay(45000)
             }
         }
     }
@@ -56,11 +54,33 @@ class MainActivity : Activity() {
         display.close()
         super.onDestroy()
     }
-
 }
 ```
 
 Calls to the ```refresh``` function must be done from a coroutine since all functions, except ```close```, are suspendable functions.
+
+Orientation
+--------
+
+By default the display renders the layout in landscape mode, the serial port on the bottom. Orientation can either be set when creating a Epd device or at any moment in your code.
+
+In the following example the orientation is set to ```PORTRAIT_RIGHT``` when the Epd device is created:
+```kotlin
+display = Epd7in5v2(layoutInflater, R.layout.activity_dashboard,Orientation.PORTRAIT_RIGHT)
+```
+
+On the other hand, in the next example the orientation is set at some moment of the code:
+```kotlin
+display.orientation = Orientation.LANDSCAPE_TOP
+display.refresh()
+```
+
+The possible values are:
+
+* ```Orientation.LANDSCAPE_BOTTOM```(the default orientation, with the serial port on the bottom)
+* ```Orientation.PORTRAIT_RIGHT```(portrait mode, with the serial port on the right)
+* ```Orientation.PORTRAIT_LEFT```(portrait mode, with the serial port on the left)
+* ```Orientation.PORTRAIT_TOP```(landscape mode, with the serial port on the top)
 
 
 License

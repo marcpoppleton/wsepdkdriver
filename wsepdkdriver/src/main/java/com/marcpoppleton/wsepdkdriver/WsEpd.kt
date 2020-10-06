@@ -24,6 +24,13 @@ import com.google.android.things.pio.SpiDevice
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
+enum class Orientation {
+    LANDSCAPE_BOTTOM, //0° rotation
+    LANDSCAPE_TOP, //180° rotation
+    PORTRAIT_RIGHT, //90° rotation
+    PORTRAIT_LEFT, //-90° rotation
+}
+
 open class WsEpd() {
 
     private val SPI_NAME = "SPI0.0"

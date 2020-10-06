@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import com.marcpoppleton.wsepdkdriver.Epd7in5v2
+import com.marcpoppleton.wsepdkdriver.Orientation
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -35,25 +36,32 @@ class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        display = Epd7in5v2(layoutInflater, R.layout.activity_dashboard)
+        display = Epd7in5v2(layoutInflater, R.layout.activity_dashboard,Orientation.PORTRAIT_RIGHT)
     }
 
     override fun onResume() {
         super.onResume()
 
         val title = display.findViewById<TextView>(R.id.title) as TextView
+        val orientations = Orientation.values()
         GlobalScope.launch {
+            display.clear()
             for(i in 0..10){
                 title.text = getString(R.string.refresh_title,i)
+                display.orientation = orientations[i%4]
+                Log.d(TAG,"orientation is ${orientations[i%4]}")
                 display.refresh()
-                delay(45000)
+                delay(10000)
             }
         }
     }
 
     override fun onDestroy() {
-        display.close()
-        super.onDestroy()
+        GlobalScope.launch {
+            display.clear()
+            display.close()
+            super.onDestroy()
+        }
     }
 
 }
