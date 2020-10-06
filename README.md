@@ -1,4 +1,4 @@
-e-Paper devices driver for Android Things
+e-Paper devices driver for Android Things [ ![Download](https://api.bintray.com/packages/marcpoppleton/Maven/com.marcpoppleton%3Awsepdkdriver/images/download.svg) ](https://bintray.com/marcpoppleton/Maven/com.marcpoppleton%3Awsepdkdriver/_latestVersion)
 ============================
 
 This is the source code of the e-Paper devices driver library for Android Things.
@@ -23,7 +23,7 @@ Usage
 Add the dependency to your application's build.gradle file:
 
 ```groovy
-implementation 'com.marcpoppleton:wsepdkdriver:1.0.0'
+implementation 'com.marcpoppleton:wsepdkdriver:1.0.1'
 ```
 
 In your application's code you can use a e-Paper device like a display.
