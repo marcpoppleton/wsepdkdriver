@@ -26,8 +26,8 @@ android {
     defaultConfig {
         minSdkVersion 27
         targetSdkVersion 29
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -58,7 +58,7 @@ dependencies {
 //region Publish to jCenter
 def libGroupId = 'com.marcpoppleton'
 def libArtifactId = 'wsepdkdriver'
-def libVersion = '1.0.1'
+def libVersion = '1.2.0'
 def libDesc = 'This is a kotlin library allowing integration of e-Paper devices in Android Things projects.'
 def libLicenses = ['Apache-2.0']
 def libVCSUrl = 'https://github.com/marcpoppleton/wsepdkdriver.git'

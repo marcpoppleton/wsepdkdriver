@@ -23,7 +23,7 @@ Usage
 Add the dependency to your application's build.gradle file:
 
 ```groovy
-implementation 'com.marcpoppleton:wsepdkdriver:1.0.1'
+implementation 'com.marcpoppleton:wsepdkdriver:1.2.0'
 ```
 
 In your application's code you can use a e-Paper device like a display.
