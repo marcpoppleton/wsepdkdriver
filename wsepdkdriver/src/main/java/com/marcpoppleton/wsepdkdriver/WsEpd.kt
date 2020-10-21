@@ -23,6 +23,7 @@ import com.google.android.things.pio.PeripheralManager
 import com.google.android.things.pio.SpiDevice
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+import kotlin.jvm.Throws
 
 enum class Orientation {
     LANDSCAPE_BOTTOM, //0° rotation

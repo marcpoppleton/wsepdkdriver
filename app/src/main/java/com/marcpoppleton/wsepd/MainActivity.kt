@@ -50,7 +50,7 @@ class MainActivity : Activity() {
                 title.text = getString(R.string.refresh_title,i)
                 display.orientation = orientations[i%4]
                 Log.d(TAG,"orientation is ${orientations[i%4]}")
-                display.refresh()
+                display.refresh(true)
                 delay(10000)
             }
         }
