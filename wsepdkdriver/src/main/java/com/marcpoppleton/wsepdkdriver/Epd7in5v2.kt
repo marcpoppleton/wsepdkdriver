@@ -65,6 +65,12 @@ class Epd7in5v2(private val layoutInflater: LayoutInflater,private val layoutRef
     }
 
     suspend fun clear() {
+        require(!initialising) { "EPD initialising, cannot process command" }
+
+        if (!initialised) {
+            init()
+        }
+
         sendCommand(DTM1) // DATA TRANSMISSION 1
         for (i in 0 until (HEIGHT * WIDTH) / 8) {
             sendData(WHITE)
@@ -77,6 +83,12 @@ class Epd7in5v2(private val layoutInflater: LayoutInflater,private val layoutRef
     }
 
     suspend fun clearBlack() {
+        require(!initialising) { "EPD initialising, cannot process command" }
+
+        if (!initialised) {
+            init()
+        }
+
         sendCommand(DTM2) // DATA TRANSMISSION 2
         for (i in 0 until (HEIGHT * WIDTH) / 8) {
             sendData(BLACK)
