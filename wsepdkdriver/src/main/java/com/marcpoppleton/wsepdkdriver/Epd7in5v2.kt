@@ -15,6 +15,7 @@ limitations under the License.
  */
 package com.marcpoppleton.wsepdkdriver
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
@@ -97,10 +98,11 @@ class Epd7in5v2(private val layoutInflater: LayoutInflater,private val layoutRef
         turnOnDisplay()
     }
 
-    suspend fun refresh() {
+    suspend fun refresh(debugDumpToFile:Boolean=false) {
         val bitmap: Bitmap? = loadBitmapFromView()
         bitmap?.let {
-            writeBitmapToBuffer(it)
+            it.writeBitmapToBuffer()
+            if(debugDumpToFile)it.dumpDisplayToFile()
             updateDisplay()
         }
     }
@@ -202,10 +204,17 @@ class Epd7in5v2(private val layoutInflater: LayoutInflater,private val layoutRef
         newDataBuffer.copyInto(displayedDataBuffer)
     }
 
-    private fun writeBitmapToBuffer(bmp: Bitmap) {
+    private fun Bitmap.dumpDisplayToFile(){
+        val timestamp = System.currentTimeMillis()
+        val filename = "wsepdump_$timestamp.png"
+        layout.context.openFileOutput(filename, Context.MODE_PRIVATE).use {out ->
+            this.compress(Bitmap.CompressFormat.PNG,100,out)
+            out.flush()
+            out.close()
+        }
+    }
 
-        val width = bmp.width
-        val height = bmp.height
+    private fun Bitmap.writeBitmapToBuffer() {
 
         // Buffer stores bytes representing the value of the images pixels.
         // Each bit of a byte sets the state of the corresponding pixel, 1 for black, 0 for white.
@@ -220,7 +229,7 @@ class Epd7in5v2(private val layoutInflater: LayoutInflater,private val layoutRef
             for (y in 0 until ySize) {
                 var b: Byte = WHITE.toByte()
                 for (z in 0..7) {
-                    val pixel = bmp.getPixel(x * 8 + z, y)
+                    val pixel = this.getPixel(x * 8 + z, y)
                     if (pixel and BLACK <= CUTOFF) {
                         b = b or (1 shl (7 - z)).toByte()
                     }
